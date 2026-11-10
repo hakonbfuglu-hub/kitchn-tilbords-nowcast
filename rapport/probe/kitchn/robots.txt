@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /templates/
+Disallow: /lindbak/
+Disallow: /cookies.htm
+Disallow: /sok/
+Disallow: *?txtSearch*
+Disallow: /*smslogin*
+Disallow: /*vippslogin*
+
+Sitemap: https://www.kitchn.no/sitemap_index.xml/
+
+# generated 

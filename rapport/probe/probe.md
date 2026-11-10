@@ -1,0 +1,38 @@
+# Kartlegging
+
+## Kitchn (https://www.kitchn.no)
+
+- robots-regler: ['/admin/', '/templates/', '/lindbak/', '/cookies.htm', '/sok/', '*?txtSearch*', '/*smslogin*', '/*vippslogin*']
+- `/sitemap_index.xml/` -> 287 tegn; viser=-; produktlenker(>=3 ledd)=0; Førpris=0; Klubbpris=0; Kampanjeslutt=0; tegn: 
+- `/sitemapsplit.xml?page=1` -> 3,056,380 tegn; viser=-; produktlenker(>=3 ledd)=0; Førpris=0; Klubbpris=0; Kampanjeslutt=0; tegn: 
+- `/` -> 457,206 tegn; viser=-; produktlenker(>=3 ledd)=26; Førpris=20; Klubbpris=5; Kampanjeslutt=25; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/` -> 843,167 tegn; viser=Viser 80 av 12454 produkter; produktlenker(>=3 ledd)=2; Førpris=28; Klubbpris=5; Kampanjeslutt=31; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/?campaigns=kampanjevare` -> 644,753 tegn; viser=Viser 80 av 3127 produkter; produktlenker(>=3 ledd)=2; Førpris=82; Klubbpris=6; Kampanjeslutt=86; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/bakeutstyr/` -> 576,460 tegn; viser=Viser 80 av 1435 produkter; produktlenker(>=3 ledd)=1; Førpris=71; Klubbpris=5; Kampanjeslutt=74; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/bakeutstyr/?page=2` -> 801,658 tegn; viser=Viser 160 av 1435 produkter; produktlenker(>=3 ledd)=1; Førpris=120; Klubbpris=6; Kampanjeslutt=123; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/bakeutstyr/?pageSize=200` -> 576,473 tegn; viser=Viser 80 av 1435 produkter; produktlenker(>=3 ledd)=1; Førpris=71; Klubbpris=5; Kampanjeslutt=74; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/bakeutstyr/kakering/` -> 303,484 tegn; viser=-; produktlenker(>=3 ledd)=1; Førpris=8; Klubbpris=1; Kampanjeslutt=9; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kampanje/` -> 662,249 tegn; viser=Viser 80 av 4170 produkter; produktlenker(>=3 ledd)=1; Førpris=68; Klubbpris=8; Kampanjeslutt=74; tegn: application/ld+json, application/json, window., data-product, Vue, {{
+- `/kampanje/blackfriday/` -> 663,996 tegn; viser=Viser 80 av 463 produkter; produktlenker(>=3 ledd)=16; Førpris=10; Klubbpris=4; Kampanjeslutt=14; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/gryter-og-panner/stekepanner/woll-eco-logic-qxr-stekepanne-28-cm-avtagbart-trehandtak/` -> 495,369 tegn; viser=-; produktlenker(>=3 ledd)=16; Førpris=18; Klubbpris=3; Kampanjeslutt=20; tegn: application/ld+json, application/json, window., data-product, {{
+- `/kjokken/bakeutstyr/?page=18` (oppgitt 1435) -> 3,957,656 tegn; viser=-; produktlenker(>=3 ledd)=1; Førpris=438; Klubbpris=128; Kampanjeslutt=447; tegn: application/ld+json, application/json, window., data-product, {{
+- forespørsler: 13, HTTP: {200: 13}, bytes: 13,054,262
+
+## Tilbords (https://www.tilbords.no)
+
+- robots-regler: ['/admin/', '/templates/', '/lindbak/', '/cookies.htm', '/sok/', '*?txtSearch*', '/*smslogin*', '/*vippslogin*']
+- `/sitemap_index.xml/` -> 370 tegn; viser=-; produktlenker(>=3 ledd)=0; Førpris=0; Klubbpris=0; Kampanjeslutt=0; tegn: 
+- `/sitemapsplit.xml?page=1` -> 3,053,299 tegn; viser=-; produktlenker(>=3 ledd)=0; Førpris=0; Klubbpris=0; Kampanjeslutt=0; tegn: 
+- `/` -> 433,637 tegn; viser=-; produktlenker(>=3 ledd)=382; Førpris=35; Klubbpris=19; Kampanjeslutt=0; tegn: window., data-product, Vue, {{
+- `/kjokken/` -> 737,886 tegn; viser=Viser 80 av 12752 produkter; produktlenker(>=3 ledd)=340; Førpris=27; Klubbpris=10; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/?campaigns=kampanjevare` -> 512,002 tegn; viser=Viser 80 av 498 produkter; produktlenker(>=3 ledd)=340; Førpris=70; Klubbpris=16; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/bakeutstyr/` -> 466,395 tegn; viser=Viser 80 av 1474 produkter; produktlenker(>=3 ledd)=339; Førpris=18; Klubbpris=4; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/bakeutstyr/?page=2` -> 638,892 tegn; viser=Viser 160 av 1474 produkter; produktlenker(>=3 ledd)=339; Førpris=19; Klubbpris=4; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/bakeutstyr/?pageSize=200` -> 466,468 tegn; viser=Viser 80 av 1474 produkter; produktlenker(>=3 ledd)=339; Førpris=18; Klubbpris=4; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/bakeutstyr/kakering/` -> 267,851 tegn; viser=-; produktlenker(>=3 ledd)=339; Førpris=5; Klubbpris=1; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kampanje/` -> 614,149 tegn; viser=Viser 80 av 6167 produkter; produktlenker(>=3 ledd)=339; Førpris=80; Klubbpris=3; Kampanjeslutt=0; tegn: window., data-product, Vue, {{
+- `/kampanje/black-friday/` -> 495,006 tegn; viser=Viser 80 av 385 produkter; produktlenker(>=3 ledd)=349; Førpris=10; Klubbpris=3; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/gryter-og-panner/stekepanner/woll-eco-logic-qxr-stekepanne-28-cm-avtagbart-trehandtak/` -> 355,034 tegn; viser=-; produktlenker(>=3 ledd)=355; Førpris=5; Klubbpris=1; Kampanjeslutt=0; tegn: window., data-product, {{
+- `/kjokken/bakeutstyr/?page=19` (oppgitt 1474) -> 3,411,982 tegn; viser=-; produktlenker(>=3 ledd)=339; Førpris=77; Klubbpris=4; Kampanjeslutt=0; tegn: window., data-product, {{
+- forespørsler: 13, HTTP: {200: 13}, bytes: 11,461,531
+
