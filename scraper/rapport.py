@@ -120,22 +120,22 @@ def _store_report(store: str) -> dict | None:
     with pd.ExcelWriter(xl, engine="openpyxl") as w:
         summ = alle.drop(columns=["gruppe"]).set_index("date").T.reset_index().rename(
             columns={"index": "mål"})
-        summ.to_excel(w, "Sammendrag", index=False)
-        alle.to_excel(w, "Dag", index=False)
-        wk.to_excel(w, "Uke", index=False)
-        kats.to_excel(w, "Kategorier", index=False)
+        summ.to_excel(w, sheet_name="Sammendrag", index=False)
+        alle.to_excel(w, sheet_name="Dag", index=False)
+        wk.to_excel(w, sheet_name="Uke", index=False)
+        kats.to_excel(w, sheet_name="Kategorier", index=False)
         if not fac.empty:
-            fac.to_excel(w, "Kampanjefasetter", index=False)
+            fac.to_excel(w, sheet_name="Kampanjefasetter", index=False)
         if not kp.empty:
-            kp.to_excel(w, "Kampanjesider", index=False)
+            kp.to_excel(w, sheet_name="Kampanjesider", index=False)
         if not butikker.empty:
-            butikker.to_excel(w, "Butikker", index=False)
+            butikker.to_excel(w, sheet_name="Butikker", index=False)
         cols = ["product_id", "category", "brand", "name", "price", "price_ordinary",
                 "price_open", "price_member", "rabatt_medlem", "campaigns", "campaign_end",
                 "web_stock", "n_stores_stock", "store_units"]
         snap[[c for c in cols if c in snap]].sort_values(["category", "brand"]).to_excel(
-            w, "Varer", index=False)
-        pd.DataFrame(FORKLARING, columns=["Mål", "Forklaring"]).to_excel(w, "Forklaring", index=False)
+            w, sheet_name="Varer", index=False)
+        pd.DataFrame(FORKLARING, columns=["Mål", "Forklaring"]).to_excel(w, sheet_name="Forklaring", index=False)
         for name, d in (("Dag", alle), ("Uke", wk), ("Kategorier", kats)):
             _fmt(w.sheets[name], d)
         ws = w.sheets["Sammendrag"]

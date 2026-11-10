@@ -58,3 +58,20 @@ def test_price_index(df):
     assert p["prisindeks_medlem"] == pytest.approx(100 * 0.8 ** (1 / 3))
     assert p["prisindeks_ordinaer"] == pytest.approx(100)
     assert p["n_medlem"] == 3
+
+
+def test_report_builds(df, tmp_path, monkeypatch):
+    from scraper import rapport
+    d = tmp_path / "data" / "kitchn" / "varer"
+    d.mkdir(parents=True)
+    raw = df[[c for c in indeks.COLS if c in df]]
+    for day, g in raw.groupby("date"):
+        g.to_csv(d / f"{day}.csv.gz", index=False)
+    monkeypatch.setattr(config, "DATA_DIR", tmp_path / "data")
+    monkeypatch.setattr(config, "STORES", {"kitchn": config.STORES["kitchn"]})
+    monkeypatch.setattr(rapport, "OUT", tmp_path / "rapport")
+    r = rapport.build()
+    assert "Kitchn" in r["sammendrag"]
+    x = pd.read_excel(tmp_path / "rapport" / "kitchn_tracker.xlsx", sheet_name=None, engine="openpyxl")
+    assert {"Sammendrag", "Dag", "Uke", "Varer", "Forklaring"} <= set(x)
+    assert len(x["Varer"]) == 4
