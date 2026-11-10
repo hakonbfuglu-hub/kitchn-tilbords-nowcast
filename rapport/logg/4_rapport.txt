@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/home/runner/work/kitchn-tilbords-nowcast/kitchn-tilbords-nowcast/scraper/rapport.py", line 123, in _store_report
+    summ.to_excel(w, "Sammendrag", index=False)
+TypeError: NDFrame.to_excel() takes 2 positional arguments but 3 positional arguments (and 1 keyword-only argument) were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/kitchn-tilbords-nowcast/kitchn-tilbords-nowcast/scraper/__main__.py", line 75, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/runner/work/kitchn-tilbords-nowcast/kitchn-tilbords-nowcast/scraper/__main__.py", line 51, in main
+    r = rapport.build()
+        ^^^^^^^^^^^^^^^
+  File "/home/runner/work/kitchn-tilbords-nowcast/kitchn-tilbords-nowcast/scraper/rapport.py", line 171, in build
+    res = [r for r in (_store_report(s) for s in config.STORES) if r]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/kitchn-tilbords-nowcast/kitchn-tilbords-nowcast/scraper/rapport.py", line 171, in <genexpr>
+    res = [r for r in (_store_report(s) for s in config.STORES) if r]
+                       ^^^^^^^^^^^^^^^^
+  File "/home/runner/work/kitchn-tilbords-nowcast/kitchn-tilbords-nowcast/scraper/rapport.py", line 120, in _store_report
+    with pd.ExcelWriter(xl, engine="openpyxl") as w:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1458, in __exit__
+    self.close()
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1462, in close
+    self._save()
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 109, in _save
+    self.book.save(self._handles.handle)
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/workbook/workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/writer/excel.py", line 294, in save_workbook
+    writer.save()
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/writer/excel.py", line 275, in save
+    self.write_data()
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/writer/excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/workbook/_writer.py", line 150, in write
+    self.write_views()
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/workbook/_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/openpyxl/workbook/_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible

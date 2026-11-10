@@ -29,7 +29,7 @@
 [kitchn] /uterom/matlaging-og-servering/               160 av 160 (side2)
 [kitchn] /uterom/varme-og-utebelysning/                 95 av 95 (side2)
 
-[kitchn] OK: 33488 varer (oppgitt 33489), 144 forespørsler, 140.9 MB, 11.8 min
+[kitchn] OK: 33488 varer (oppgitt 33489), 144 forespørsler, 141.2 MB, 10.1 min
 [tilbords] 2026-11-10: 29 kategorier
 [tilbords] /borddekking/bestikk/                        1402 av 1402 (side18)
 [tilbords] /borddekking/flasker-og-kanner/              1769 av 1769 (side23)
@@ -61,4 +61,4 @@
 [tilbords] /uterom/matlaging-og-servering/               174 av 174 (side3)
 [tilbords] /uterom/varme-og-utebelysning/                 96 av 96 (side2)
 
-[tilbords] OK: 36028 varer (oppgitt 36028), 144 forespørsler, 129.3 MB, 13.2 min
+[tilbords] OK: 36028 varer (oppgitt 36028), 144 forespørsler, 129.5 MB, 10.5 min

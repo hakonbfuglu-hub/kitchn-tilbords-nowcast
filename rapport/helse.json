@@ -11,16 +11,16 @@
     "andel_med_pris": 1.0,
     "andel_kampanjevare": 0.111,
     "andel_paa_nettlager": 0.847,
-    "butikkenheter": 3910292,
+    "butikkenheter": 3909911,
     "fysiske_butikker": 153,
     "forside_bannere": 19,
     "kampanjesider": 5,
     "foresporsler": 144,
-    "mb": 140.9,
+    "mb": 141.2,
     "http_status": {
       "200": 144
     },
-    "minutter": 11.8,
+    "minutter": 10.1,
     "kategorier": [
       {
         "category": "/kjokken/",
@@ -300,16 +300,16 @@
     "andel_med_pris": 1.0,
     "andel_kampanjevare": 0.16,
     "andel_paa_nettlager": 0.845,
-    "butikkenheter": 1028941,
+    "butikkenheter": 1028933,
     "fysiske_butikker": 56,
     "forside_bannere": 19,
     "kampanjesider": 4,
     "foresporsler": 144,
-    "mb": 129.3,
+    "mb": 129.5,
     "http_status": {
       "200": 144
     },
-    "minutter": 13.2,
+    "minutter": 10.5,
     "kategorier": [
       {
         "category": "/kjokken/",

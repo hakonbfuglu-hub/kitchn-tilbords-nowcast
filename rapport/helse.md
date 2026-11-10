@@ -2,9 +2,9 @@
 
 - Varer: 33488 (forrige kjøring: None); toppkategoriene oppgir 33489
 - Med pris: 100%, kampanjevare: 11%, på nettlager: 85%
-- Lager i butikk: 3 910 292 enheter i 153 butikker
+- Lager i butikk: 3 909 911 enheter i 153 butikker
 - Forsidebannere: 19, kampanjesider: 5
-- Forespørsler: 144, 140.9 MB, 11.8 min, HTTP: {'200': 144}
+- Forespørsler: 144, 141.2 MB, 10.1 min, HTTP: {'200': 144}
 
 | Kategori | Funnet | Oppgitt | Metode |
 |---|---:|---:|---|
@@ -46,9 +46,9 @@
 
 - Varer: 36028 (forrige kjøring: None); toppkategoriene oppgir 36028
 - Med pris: 100%, kampanjevare: 16%, på nettlager: 84%
-- Lager i butikk: 1 028 941 enheter i 56 butikker
+- Lager i butikk: 1 028 933 enheter i 56 butikker
 - Forsidebannere: 19, kampanjesider: 4
-- Forespørsler: 144, 129.3 MB, 13.2 min, HTTP: {'200': 144}
+- Forespørsler: 144, 129.5 MB, 10.5 min, HTTP: {'200': 144}
 
 | Kategori | Funnet | Oppgitt | Metode |
 |---|---:|---:|---|
