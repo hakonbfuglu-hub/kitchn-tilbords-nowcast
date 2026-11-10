@@ -1,0 +1,1 @@
+kjoring=42843588080 hendelse=push commit=b9882cd186aa21411d5fecc9b29e80e7263896b7 tid=2026-11-10T15:47:26Z

@@ -1,0 +1,580 @@
+[
+  {
+    "butikk": "kitchn",
+    "dato": "2026-11-10",
+    "uke": "2026-W46",
+    "status": "OK",
+    "problemer": [],
+    "varer": 33488,
+    "varer_forrige": null,
+    "oppgitt_toppkategorier": 33489,
+    "andel_med_pris": 1.0,
+    "andel_kampanjevare": 0.111,
+    "andel_paa_nettlager": 0.847,
+    "butikkenheter": 3910292,
+    "fysiske_butikker": 153,
+    "forside_bannere": 19,
+    "kampanjesider": 5,
+    "foresporsler": 144,
+    "mb": 140.9,
+    "http_status": {
+      "200": 144
+    },
+    "minutter": 11.8,
+    "kategorier": [
+      {
+        "category": "/kjokken/",
+        "depth": 1,
+        "site_total": 12449,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/borddekking/",
+        "depth": 1,
+        "site_total": 12345,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/interior/",
+        "depth": 1,
+        "site_total": 7910,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/uterom/",
+        "depth": 1,
+        "site_total": 785,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/borddekking/bestikk/",
+        "depth": 2,
+        "site_total": 1207,
+        "found": 1207,
+        "requests": 2,
+        "method": "side16"
+      },
+      {
+        "category": "/borddekking/flasker-og-kanner/",
+        "depth": 2,
+        "site_total": 1646,
+        "found": 1646,
+        "requests": 2,
+        "method": "side21"
+      },
+      {
+        "category": "/borddekking/glass/",
+        "depth": 2,
+        "site_total": 1536,
+        "found": 1536,
+        "requests": 2,
+        "method": "side20"
+      },
+      {
+        "category": "/borddekking/kopper-og-krus/",
+        "depth": 2,
+        "site_total": 1693,
+        "found": 1692,
+        "requests": 2,
+        "method": "side22"
+      },
+      {
+        "category": "/borddekking/serveringstilbehor/",
+        "depth": 2,
+        "site_total": 1558,
+        "found": 1558,
+        "requests": 2,
+        "method": "side20"
+      },
+      {
+        "category": "/borddekking/servisedeler/",
+        "depth": 2,
+        "site_total": 4076,
+        "found": 4076,
+        "requests": 1,
+        "method": "underkategorier"
+      },
+      {
+        "category": "/borddekking/vin-og-barutstyr/",
+        "depth": 2,
+        "site_total": 629,
+        "found": 629,
+        "requests": 2,
+        "method": "side8"
+      },
+      {
+        "category": "/interior/bad/",
+        "depth": 2,
+        "site_total": 418,
+        "found": 418,
+        "requests": 2,
+        "method": "side6"
+      },
+      {
+        "category": "/interior/belysning/",
+        "depth": 2,
+        "site_total": 291,
+        "found": 291,
+        "requests": 2,
+        "method": "side4"
+      },
+      {
+        "category": "/interior/dekor/",
+        "depth": 2,
+        "site_total": 1549,
+        "found": 1549,
+        "requests": 2,
+        "method": "side20"
+      },
+      {
+        "category": "/interior/hjemme/",
+        "depth": 2,
+        "site_total": 797,
+        "found": 797,
+        "requests": 2,
+        "method": "side10"
+      },
+      {
+        "category": "/interior/klokker/",
+        "depth": 2,
+        "site_total": 67,
+        "found": 67,
+        "requests": 1,
+        "method": "side1"
+      },
+      {
+        "category": "/interior/lys-og-lysestaker/",
+        "depth": 2,
+        "site_total": 1420,
+        "found": 1420,
+        "requests": 2,
+        "method": "side18"
+      },
+      {
+        "category": "/interior/rengjoring/",
+        "depth": 2,
+        "site_total": 373,
+        "found": 373,
+        "requests": 2,
+        "method": "side5"
+      },
+      {
+        "category": "/interior/tekstil/",
+        "depth": 2,
+        "site_total": 1976,
+        "found": 1976,
+        "requests": 2,
+        "method": "side25"
+      },
+      {
+        "category": "/interior/tepper/",
+        "depth": 2,
+        "site_total": 247,
+        "found": 247,
+        "requests": 2,
+        "method": "side4"
+      },
+      {
+        "category": "/interior/vaser-og-potter/",
+        "depth": 2,
+        "site_total": 772,
+        "found": 772,
+        "requests": 2,
+        "method": "side10"
+      },
+      {
+        "category": "/kjokken/bakeutstyr/",
+        "depth": 2,
+        "site_total": 1434,
+        "found": 1434,
+        "requests": 2,
+        "method": "side18"
+      },
+      {
+        "category": "/kjokken/gryter-og-panner/",
+        "depth": 2,
+        "site_total": 1962,
+        "found": 1962,
+        "requests": 2,
+        "method": "side25"
+      },
+      {
+        "category": "/kjokken/kjokkenapparater/",
+        "depth": 2,
+        "site_total": 1748,
+        "found": 1748,
+        "requests": 2,
+        "method": "side22"
+      },
+      {
+        "category": "/kjokken/kjokkenkniver/",
+        "depth": 2,
+        "site_total": 1044,
+        "found": 1044,
+        "requests": 2,
+        "method": "side14"
+      },
+      {
+        "category": "/kjokken/kjokkentekstil/",
+        "depth": 2,
+        "site_total": 792,
+        "found": 792,
+        "requests": 2,
+        "method": "side10"
+      },
+      {
+        "category": "/kjokken/kjokkenutstyr/",
+        "depth": 2,
+        "site_total": 3792,
+        "found": 3792,
+        "requests": 1,
+        "method": "underkategorier"
+      },
+      {
+        "category": "/kjokken/mat-og-drikke/",
+        "depth": 2,
+        "site_total": 577,
+        "found": 577,
+        "requests": 2,
+        "method": "side8"
+      },
+      {
+        "category": "/kjokken/oppbevaring/",
+        "depth": 2,
+        "site_total": 1100,
+        "found": 1100,
+        "requests": 2,
+        "method": "side14"
+      },
+      {
+        "category": "/uterom/grill/",
+        "depth": 2,
+        "site_total": 402,
+        "found": 402,
+        "requests": 2,
+        "method": "side6"
+      },
+      {
+        "category": "/uterom/hage/",
+        "depth": 2,
+        "site_total": 128,
+        "found": 128,
+        "requests": 2,
+        "method": "side2"
+      },
+      {
+        "category": "/uterom/matlaging-og-servering/",
+        "depth": 2,
+        "site_total": 160,
+        "found": 160,
+        "requests": 2,
+        "method": "side2"
+      },
+      {
+        "category": "/uterom/varme-og-utebelysning/",
+        "depth": 2,
+        "site_total": 95,
+        "found": 95,
+        "requests": 2,
+        "method": "side2"
+      }
+    ]
+  },
+  {
+    "butikk": "tilbords",
+    "dato": "2026-11-10",
+    "uke": "2026-W46",
+    "status": "OK",
+    "problemer": [],
+    "varer": 36028,
+    "varer_forrige": null,
+    "oppgitt_toppkategorier": 36028,
+    "andel_med_pris": 1.0,
+    "andel_kampanjevare": 0.16,
+    "andel_paa_nettlager": 0.845,
+    "butikkenheter": 1028941,
+    "fysiske_butikker": 56,
+    "forside_bannere": 19,
+    "kampanjesider": 4,
+    "foresporsler": 144,
+    "mb": 129.3,
+    "http_status": {
+      "200": 144
+    },
+    "minutter": 13.2,
+    "kategorier": [
+      {
+        "category": "/kjokken/",
+        "depth": 1,
+        "site_total": 12752,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/borddekking/",
+        "depth": 1,
+        "site_total": 13568,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/interior/",
+        "depth": 1,
+        "site_total": 8878,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/uterom/",
+        "depth": 1,
+        "site_total": 830,
+        "found": null,
+        "requests": 1,
+        "method": "topp"
+      },
+      {
+        "category": "/borddekking/bestikk/",
+        "depth": 2,
+        "site_total": 1402,
+        "found": 1402,
+        "requests": 2,
+        "method": "side18"
+      },
+      {
+        "category": "/borddekking/flasker-og-kanner/",
+        "depth": 2,
+        "site_total": 1769,
+        "found": 1769,
+        "requests": 2,
+        "method": "side23"
+      },
+      {
+        "category": "/borddekking/glass/",
+        "depth": 2,
+        "site_total": 1656,
+        "found": 1656,
+        "requests": 2,
+        "method": "side21"
+      },
+      {
+        "category": "/borddekking/kopper-og-krus/",
+        "depth": 2,
+        "site_total": 1827,
+        "found": 1827,
+        "requests": 2,
+        "method": "side23"
+      },
+      {
+        "category": "/borddekking/serveringstilbehor/",
+        "depth": 2,
+        "site_total": 1724,
+        "found": 1724,
+        "requests": 2,
+        "method": "side22"
+      },
+      {
+        "category": "/borddekking/servisedeler/",
+        "depth": 2,
+        "site_total": 4464,
+        "found": 4464,
+        "requests": 1,
+        "method": "underkategorier"
+      },
+      {
+        "category": "/borddekking/vin-og-barutstyr/",
+        "depth": 2,
+        "site_total": 726,
+        "found": 726,
+        "requests": 2,
+        "method": "side10"
+      },
+      {
+        "category": "/interior/bad/",
+        "depth": 2,
+        "site_total": 467,
+        "found": 467,
+        "requests": 2,
+        "method": "side6"
+      },
+      {
+        "category": "/interior/belysning/",
+        "depth": 2,
+        "site_total": 385,
+        "found": 385,
+        "requests": 2,
+        "method": "side5"
+      },
+      {
+        "category": "/interior/dekor/",
+        "depth": 2,
+        "site_total": 1796,
+        "found": 1796,
+        "requests": 2,
+        "method": "side23"
+      },
+      {
+        "category": "/interior/hjemme/",
+        "depth": 2,
+        "site_total": 870,
+        "found": 870,
+        "requests": 2,
+        "method": "side11"
+      },
+      {
+        "category": "/interior/klokker/",
+        "depth": 2,
+        "site_total": 74,
+        "found": 74,
+        "requests": 1,
+        "method": "side1"
+      },
+      {
+        "category": "/interior/lys-og-lysestaker/",
+        "depth": 2,
+        "site_total": 1655,
+        "found": 1655,
+        "requests": 2,
+        "method": "side21"
+      },
+      {
+        "category": "/interior/rengjoring/",
+        "depth": 2,
+        "site_total": 387,
+        "found": 387,
+        "requests": 2,
+        "method": "side5"
+      },
+      {
+        "category": "/interior/tekstil/",
+        "depth": 2,
+        "site_total": 2070,
+        "found": 2070,
+        "requests": 2,
+        "method": "side26"
+      },
+      {
+        "category": "/interior/tepper/",
+        "depth": 2,
+        "site_total": 253,
+        "found": 253,
+        "requests": 2,
+        "method": "side4"
+      },
+      {
+        "category": "/interior/vaser-og-potter/",
+        "depth": 2,
+        "site_total": 921,
+        "found": 921,
+        "requests": 2,
+        "method": "side12"
+      },
+      {
+        "category": "/kjokken/bakeutstyr/",
+        "depth": 2,
+        "site_total": 1474,
+        "found": 1474,
+        "requests": 2,
+        "method": "side19"
+      },
+      {
+        "category": "/kjokken/gryter-og-panner/",
+        "depth": 2,
+        "site_total": 1997,
+        "found": 1997,
+        "requests": 2,
+        "method": "side25"
+      },
+      {
+        "category": "/kjokken/kjokkenapparater/",
+        "depth": 2,
+        "site_total": 1723,
+        "found": 1723,
+        "requests": 2,
+        "method": "side22"
+      },
+      {
+        "category": "/kjokken/kjokkenkniver/",
+        "depth": 2,
+        "site_total": 1115,
+        "found": 1115,
+        "requests": 2,
+        "method": "side14"
+      },
+      {
+        "category": "/kjokken/kjokkentekstil/",
+        "depth": 2,
+        "site_total": 827,
+        "found": 827,
+        "requests": 2,
+        "method": "side11"
+      },
+      {
+        "category": "/kjokken/kjokkenutstyr/",
+        "depth": 2,
+        "site_total": 3854,
+        "found": 3854,
+        "requests": 1,
+        "method": "underkategorier"
+      },
+      {
+        "category": "/kjokken/mat-og-drikke/",
+        "depth": 2,
+        "site_total": 534,
+        "found": 534,
+        "requests": 2,
+        "method": "side7"
+      },
+      {
+        "category": "/kjokken/oppbevaring/",
+        "depth": 2,
+        "site_total": 1228,
+        "found": 1228,
+        "requests": 2,
+        "method": "side16"
+      },
+      {
+        "category": "/uterom/grill/",
+        "depth": 2,
+        "site_total": 411,
+        "found": 411,
+        "requests": 2,
+        "method": "side6"
+      },
+      {
+        "category": "/uterom/hage/",
+        "depth": 2,
+        "site_total": 149,
+        "found": 149,
+        "requests": 2,
+        "method": "side2"
+      },
+      {
+        "category": "/uterom/matlaging-og-servering/",
+        "depth": 2,
+        "site_total": 174,
+        "found": 174,
+        "requests": 2,
+        "method": "side3"
+      },
+      {
+        "category": "/uterom/varme-og-utebelysning/",
+        "depth": 2,
+        "site_total": 96,
+        "found": 96,
+        "requests": 2,
+        "method": "side2"
+      }
+    ]
+  }
+]
