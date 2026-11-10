@@ -1,0 +1,96 @@
+name: Prisinnsamling
+
+# Daglig i november-januar (Black Week, jul, januarsalg), ellers hver mandag.
+# Begge butikker hentes etter hverandre (ca. 70 forespørsler hver).
+on:
+  schedule:
+    - cron: "47 2 * 11,12,1 *"    # daglig nov-jan, 02:47 UTC (03:47 norsk tid)
+    - cron: "47 2 * 2-10 1"       # mandager feb-okt
+  workflow_dispatch:
+    inputs:
+      butikk:
+        description: "kitchn, tilbords eller tomt for begge"
+        required: false
+        default: ""
+  push:
+    branches: [main]
+    paths:
+      - "scraper/**"
+      - "tests/**"
+      - "requirements.txt"
+      - ".github/workflows/innsamling.yml"
+      - "kjor.txt"                # endre denne filen for å starte en kjøring
+
+permissions:
+  contents: write
+
+concurrency:
+  group: innsamling
+  cancel-in-progress: false
+
+jobs:
+  innsamling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer
+        shell: bash
+        run: |
+          mkdir -p rapport/logg
+          pip install -r requirements.txt 2>&1 | tail -5 | tee rapport/logg/1_installer.txt
+
+      - name: Tester
+        shell: bash
+        run: python -m pytest -q 2>&1 | tee rapport/logg/2_tester.txt; exit ${PIPESTATUS[0]}
+
+      - name: Samle inn
+        shell: bash
+        run: |
+          # Ved kodeendring som bare gjelder analyse/rapport: ikke hent sidene på nytt
+          if [ "${{ github.event_name }}" = "push" ] && \
+             ! git diff --name-only HEAD~1 HEAD | grep -qE 'scraper/(crawl|parse|fetch|config)\.py|kjor\.txt|innsamling\.yml'; then
+            echo "Bare analyse/rapport endret; hopper over innsamling." | tee rapport/logg/3_innsamling.txt
+            exit 0
+          fi
+          ARGS=""
+          if [ -n "${{ inputs.butikk }}" ]; then ARGS="--butikk ${{ inputs.butikk }}"; fi
+          python -u -m scraper innsamling $ARGS 2>&1 | tee rapport/logg/3_innsamling.txt
+          exit ${PIPESTATUS[0]}
+
+      - name: Rapport
+        if: always()
+        shell: bash
+        run: |
+          if [ -f scraper/rapport.py ]; then
+            python -u -m scraper rapport 2>&1 | tee rapport/logg/4_rapport.txt
+          fi
+
+      - name: Last opp rå sider (14 dager)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raa-sider-${{ github.run_id }}
+          path: raw/
+          retention-days: 14
+          if-no-files-found: ignore
+          compression-level: 0     # filene er allerede gzip
+
+      - name: Lagre resultater i repoet
+        if: always()
+        shell: bash
+        run: |
+          echo "kjoring=${{ github.run_id }} hendelse=${{ github.event_name }} commit=${{ github.sha }} tid=$(date -u +%FT%TZ)" > rapport/logg/0_kjoring.txt
+          git config user.name "homeco-nowcast-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data rapport
+          git commit -m "Data og rapport $(date -u +%F) (${{ github.event_name }})" || echo "ingen endringer"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 10; done

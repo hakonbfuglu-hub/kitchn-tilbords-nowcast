@@ -30,6 +30,8 @@ EXCLUDE_TOP = {
     "mummi-produkter", "gavekort",
 }
 
+MIN_CATEGORIES = 10              # færre i menyen = bruk toppnivå i stedet
+
 # Toppkategorier (nov. 2026, likt på begge). Brukes hvis menyen ikke kan leses.
 FALLBACK_CATEGORIES = ["kjokken", "borddekking", "interior", "uterom"]
 
