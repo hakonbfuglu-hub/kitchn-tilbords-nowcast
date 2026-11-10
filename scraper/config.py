@@ -47,6 +47,11 @@ LABELS = {
     "preorder": ("Forhåndsbestill", "Kommer snart"),
 }
 
+# Analyse
+from pathlib import Path as _P
+DATA_DIR = _P(__file__).resolve().parents[1] / "data"
+BASE_WINDOW = ("2026-11-10", "2026-11-15")   # basis for prisindeks: uken før Black Week
+
 # Helsesjekk: under disse grensene regnes kjøringen som mislykket
 HEALTH_MIN_PRODUCTS = 2000
 HEALTH_MIN_PRICE_SHARE = 0.95
