@@ -1,4 +1,5 @@
 """SIDEPROSJEKT: salgsanslag fra butikklager. Skrus av med config.SALGSANSLAG = False.
+Resultat: rapport/salgsanslag/ (SALGSANSLAG.md, salgsanslag.xlsx, salgsanslag.png).
 
 Produktflisene viser antall enheter per vare i hver fysiske butikk. Når lageret
 av samme vare i samme butikk faller fra én kjøring til neste, regnes fallet som

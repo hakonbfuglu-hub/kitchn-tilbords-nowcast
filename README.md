@@ -16,13 +16,9 @@ tilbords.no. Alt går av seg selv på GitHub. Du trenger ikke installere noe.
 
 Samme definisjoner som Kid-trackeren, så tallene kan sammenlignes.
 
-**1) Omsetning (indikatorer):** antall varer (nye/borte), andel på nettlager,
-prisindeks på samme varer (priskomponenten i LFL) og **butikklager**.
-Produktflisene viser hvor mange enheter hver fysiske butikk har av hver vare
-(Kitchn ca. 150 butikker, Tilbords ca. 55). Nedgang i lager på samme vare fra én
-dag til neste er en tilnærming til solgte enheter (påfyll trekker ned). Dette
-erstatter «nye anmeldelser» fra Kid; anmeldelser per vare vises ikke på
-listesidene her.
+**1) Omsetning (indikatorer):** antall varer (nye/borte), andel på nettlager og
+prisindeks på samme varer (priskomponenten i LFL). Anmeldelser per vare vises
+ikke på listesidene, så «nye anmeldelser» fra Kid finnes ikke her.
 
 **2) Kampanjetrykk:** andel av sortimentet med kampanje, fordelt på
 butikkens egne merker (kampanjevare, klubbpris, 3 for 2 / flerkjøp, Black Weeks,
@@ -33,6 +29,30 @@ et eget mål, fordi Kitchn merker den som varig (kampanjeslutt 2030).
 Prislag: **ordinær** («Førpris», «Ikke medlem» eller «Etter kampanje» når det
 vises, ellers pris), **ikke-medlem** og **medlem** (klubbpris). Prisindeks =
 Jevons på samme varer, basis = 10.–15. november 2026 (uken før Black Week).
+
+## Sideprosjekt: salgsanslag fra butikklager
+
+Produktflisene viser hvor mange enheter hver fysiske butikk har av hver vare
+(Kitchn ca. 150 butikker, Tilbords ca. 55). Fall i lager per vare og butikk fra
+én nattkjøring til neste gir et **nedre anslag** på salget i butikk (påfyll
+skjuler salg). Kitchns sentrallager holdes utenfor og vises for seg.
+
+Det er et forsøk, holdt helt utenfor hovedrapporten: se
+[`rapport/salgsanslag/SALGSANSLAG.md`](rapport/salgsanslag/SALGSANSLAG.md).
+Fem kontroller avgjør om det er salg eller støy, med svar innen 23. november:
+
+1. Søndag (butikkene stengt) under 25 % av en vanlig dag
+2. Ukemønster: lørdag blant de største, man–ons lavere enn tor–lør
+3. Stabil fordeling på kategorier og butikker før Black Week
+4. Black Week: over 1,3x ukene før, og større løft på kampanjevarer
+5. Nivå: anslaget x 365 innenfor 20–150 % av årsomsetningen
+
+I tillegg måles lageret kl. 10, 14 og 18 den 12.–18. november for å se om
+lagertallene oppdateres løpende eller én gang i døgnet.
+
+**Skru av:** sett `SALGSANSLAG = False` i `scraper/config.py` (og slett
+`.github/workflows/lagersjekk.yml` hvis den fortsatt er aktiv). Da lagres ikke
+lager per butikk lenger, og ingenting annet påvirkes.
 
 ## Når samles det inn?
 
