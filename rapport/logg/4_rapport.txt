@@ -13,8 +13,6 @@
 | Snittrabatt ikke-medlem | 8,3 % | 8,3 % |
 | Prisindeks medlem (basis 100) | 100,0 | 100,0 |
 | Andel på nettlager | 84,9 % | 84,7 % |
-| Butikklager, enheter | 3 912 375 | 3 909 911 |
-| Lagernedgang per dag, enheter | 1 737 | – |
 
 ## Tilbords (2026-11-11, 2 kjøringer)
 
@@ -29,8 +27,6 @@
 | Snittrabatt ikke-medlem | 9,8 % | 9,9 % |
 | Prisindeks medlem (basis 100) | 100,0 | 100,0 |
 | Andel på nettlager | 84,6 % | 84,5 % |
-| Butikklager, enheter | 1 040 814 | 1 028 933 |
-| Lagernedgang per dag, enheter | 839 | – |
 
 Full rapport: `rapport/kitchn_tracker.xlsx` og `rapport/tilbords_tracker.xlsx`. Forklaring av målene står i arket «Forklaring».
 
