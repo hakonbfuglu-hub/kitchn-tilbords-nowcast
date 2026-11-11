@@ -14,6 +14,7 @@ Filer per kjøring (dato = ÅÅÅÅ-MM-DD, UTC):
   data/<butikk>/kampanjesider/<dato>.csv   antall varer på kampanjesidene
   data/<butikk>/forside/<dato>.csv         kampanjetekster på forsiden
   data/<butikk>/butikker/<dato>.csv        per fysisk butikk: varer og enheter på lager
+  data/<butikk>/lager/<dato>.csv.gz        lager per vare og butikk (bare > 0)
   raw/<butikk>/<dato>/*.html.gz            rå sider (lastes opp som artefakt, ikke i git)
 """
 
@@ -173,12 +174,14 @@ def run(store: str, raw: bool = True, campaign_pages: bool = True) -> dict:
 
     camp_rows = _campaign_pages(r, banners) if campaign_pages else []
 
-    # lager per fysisk butikk (summeres over varene; lagres ikke per vare)
+    # lager per vare og butikk (for salgsanslag per butikk) + sum per butikk
+    pairs = []
     for x in products.values():
         for sid, q in x.pop("_stores", []):
             if q > 0:
                 r.store_stock[sid][0] += 1
                 r.store_stock[sid][1] += q
+                pairs.append((x["product_id"], sid, q))
 
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     df = pd.DataFrame(list(products.values()))
@@ -187,8 +190,11 @@ def run(store: str, raw: bool = True, campaign_pages: bool = True) -> dict:
         df.insert(1, "iso_week", iso_week(r.date))
         df.insert(2, "crawled_utc", now)
     d = DATA / store
-    for sub in ("varer", "kategorier", "fasetter", "kampanjesider", "forside", "butikker"):
+    for sub in ("varer", "kategorier", "fasetter", "kampanjesider", "forside", "butikker", "lager"):
         (d / sub).mkdir(parents=True, exist_ok=True)
+    # vare x butikk med lager > 0 (manglende par = 0)
+    pd.DataFrame(pairs, columns=["product_id", "store_id", "units"]).sort_values(
+        ["store_id", "product_id"]).to_csv(d / "lager" / f"{r.date}.csv.gz", index=False)
     if len(df):
         df.to_csv(d / "varer" / f"{r.date}.csv.gz", index=False)
     pd.DataFrame(top_rows + cat_rows).assign(date=r.date).to_csv(

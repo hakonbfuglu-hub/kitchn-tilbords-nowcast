@@ -89,6 +89,8 @@ def test_full_run(site):
     assert cats.set_index("category").loc["/kjokken/b/", "method"] == "underkategorier"
     butikker = pd.read_csv(next((d / "butikker").glob("*.csv")))
     assert butikker["units"].sum() == df["store_units"].sum()
+    lager = pd.read_csv(next((d / "lager").glob("*.csv.gz")), dtype={"product_id": str})
+    assert lager["units"].sum() == df["store_units"].sum() and (lager["units"] > 0).all()
     kp = pd.read_csv(next((d / "kampanjesider").glob("*.csv")))
     assert set(kp["page"]) == {"/kampanje/", "/kampanje/blackfriday/"}
     assert h["status"] == "OK", h["problemer"]
