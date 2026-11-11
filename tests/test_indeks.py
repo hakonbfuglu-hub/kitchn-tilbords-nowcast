@@ -41,15 +41,11 @@ def test_snapshot(df):
     assert a["andel_rabatt_ikke_medlem"] == pytest.approx(0.25)  # klubbpris gjelder ikke
     assert a["snittrabatt_medlem"] == pytest.approx((0 + .5 + .5 + 0) / 4)
     assert a["andel_flerkjop"] == pytest.approx(0.25)
-    assert a["butikklager_enheter"] == 35
 
 
 def test_flows(df):
     f = indeks.flows(df).set_index("gruppe").loc["ALLE"]
     assert f["nye_varer"] == 1 and f["utgaatte_varer"] == 1
-    assert f["lager_nedgang"] == 4 and f["lager_okning"] == 5 and f["lager_netto"] == 1
-    assert f["lager_nedgang_kampanjevarer"] == 4                 # vare 1 er på kampanje dag 2
-    assert f["lager_nedgang_kr_medlem"] == 3 * 100 + 1 * 60
 
 
 def test_price_index(df):

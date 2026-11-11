@@ -192,9 +192,10 @@ def run(store: str, raw: bool = True, campaign_pages: bool = True) -> dict:
     d = DATA / store
     for sub in ("varer", "kategorier", "fasetter", "kampanjesider", "forside", "butikker", "lager"):
         (d / sub).mkdir(parents=True, exist_ok=True)
-    # vare x butikk med lager > 0 (manglende par = 0)
-    pd.DataFrame(pairs, columns=["product_id", "store_id", "units"]).sort_values(
-        ["store_id", "product_id"]).to_csv(d / "lager" / f"{r.date}.csv.gz", index=False)
+    # vare x butikk med lager > 0 (manglende par = 0); sideprosjektet salgsanslag
+    if config.SALGSANSLAG:
+        pd.DataFrame(pairs, columns=["product_id", "store_id", "units"]).sort_values(
+            ["store_id", "product_id"]).to_csv(d / "lager" / f"{r.date}.csv.gz", index=False)
     if len(df):
         df.to_csv(d / "varer" / f"{r.date}.csv.gz", index=False)
     pd.DataFrame(top_rows + cat_rows).assign(date=r.date).to_csv(
@@ -281,3 +282,28 @@ def write_health(hs: list[dict]):
                          f"{x['site_total']} | {x['method']} |")
         lines.append("")
     (REPORT / "helse.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def lagersjekk(store: str) -> Path | None:
+    """Sideprosjekt: hent lager for noen få kategorier (ca. 6 forespørsler) for å se
+    hvor ofte lagertallene på nettsiden oppdateres i løpet av dagen."""
+    r = Run(store, raw=False)
+    deadline = time.time() + 15 * 60
+    pairs = []
+    for c in config.LAGERSJEKK_KATEGORIER:
+        cards, _, _ = _crawl_category(r, c, deadline)
+        for x in cards:
+            for sid, q in x.get("_stores", []):
+                if q > 0:
+                    pairs.append((x["product_id"], sid, q))
+    if not pairs:
+        print(f"[{store}] lagersjekk: ingen data")
+        return None
+    now = dt.datetime.now(dt.timezone.utc)
+    d = DATA / store / "lagersjekk"
+    d.mkdir(parents=True, exist_ok=True)
+    p = d / f"{now:%Y-%m-%dT%H%M}.csv.gz"
+    pd.DataFrame(pairs, columns=["product_id", "store_id", "units"]).assign(
+        crawled_utc=now.isoformat(timespec="seconds")).to_csv(p, index=False)
+    print(f"[{store}] lagersjekk: {len(pairs)} par, {r.f.n_requests} forespørsler -> {p.name}")
+    return p

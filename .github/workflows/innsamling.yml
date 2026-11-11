@@ -74,6 +74,11 @@ jobs:
             python -u -m scraper rapport 2>&1 | tee rapport/logg/4_rapport.txt
           fi
 
+      - name: Salgsanslag (sideprosjekt)
+        if: always()
+        shell: bash
+        run: python -u -m scraper salgsanslag 2>&1 | tail -40 | tee rapport/logg/5_salgsanslag.txt
+
       - name: Last opp rå sider (14 dager)
         if: always()
         uses: actions/upload-artifact@v4

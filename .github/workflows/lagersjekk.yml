@@ -1,0 +1,38 @@
+name: Lagersjekk (sideprosjekt)
+
+# Sideprosjekt salgsanslag: hent lager for tre kategorier kl. 10, 14 og 18
+# norsk tid 12.-18. november, for å se hvor ofte nettsiden oppdaterer lagertallene.
+# Ca. 6 forespørsler per butikk per gang. Slett filen for å stoppe.
+on:
+  schedule:
+    - cron: "7 9,13,17 12-18 11 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: innsamling
+  cancel-in-progress: false
+
+jobs:
+  lagersjekk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt 2>&1 | tail -2
+      - name: Lagersjekk
+        run: python -u -m scraper lagersjekk
+      - name: Lagre
+        shell: bash
+        run: |
+          git config user.name "homeco-nowcast-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data
+          git commit -m "Lagersjekk $(date -u +%FT%H%M)" || echo "ingen endringer"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 10; done

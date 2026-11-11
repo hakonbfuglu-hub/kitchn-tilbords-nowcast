@@ -3,9 +3,8 @@
 Samme definisjoner som Kid-trackeren der dataene finnes:
   1) Omsetning (indikatorer)
      varer, nye/utgåtte varer, andel på nettlager, prisindeks på samme varer
-     NYTT her: lager i fysiske butikker per vare. Nedgang i lager på samme vare
-     fra én kjøring til neste ≈ salg (minus påfyll), og fanges best daglig.
-     (Anmeldelser per vare vises ikke på listesidene, så det målet mangler.)
+     (Anmeldelser per vare vises ikke på listesidene, så det målet mangler.
+     Salgsanslag fra butikklager er et eget sideprosjekt i salg.py.)
   2) Kampanjetrykk
      andel av sortimentet med kampanje (etter type), snittrabatt mot ordinær pris
      for medlem og ikke-medlem.
@@ -129,9 +128,7 @@ def snapshot_metrics(df: pd.DataFrame) -> pd.DataFrame:
                    "snittrabatt_medlem": g["rabatt_medlem"].mean(),
                    "snittrabatt_kampanjevarer_medlem": g.loc[g["k_rabatt_medlem"], "rabatt_medlem"].mean(),
                    "lagervektet_rabatt_medlem": (np.average(g["rabatt_medlem"], weights=w)
-                                                 if w.sum() > 0 else np.nan),
-                   "butikklager_enheter": w.sum(),
-                   "butikklager_kr_ordinaer": (w * g["p_ordinaer"]).sum()}
+                                                 if w.sum() > 0 else np.nan)}
             for col in list(CAMPAIGN_KEYS.values()) + ["flerkjop"]:
                 row[f"andel_{col}"] = g[f"k_{col}"].mean()
             row["andel_rabatt_medlem_ekskl_lagertomming"] = (g["k_rabatt_medlem"] & ~g["k_lagertomming"]).mean()
@@ -140,40 +137,18 @@ def snapshot_metrics(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def flows(df: pd.DataFrame, key: str = "date") -> pd.DataFrame:
-    """Endring mellom påfølgende kjøringer (eller uker): nye/utgåtte varer og
-    lagernedgang i butikk på samme vare. lager_nedgang = sum av nedgang på varer
-    der lageret falt (≈ solgte enheter; påfyll trekker ned). netto = nedgang - økning."""
+    """Nye og utgåtte varer mellom påfølgende kjøringer (eller uker)."""
     rows = []
     snaps = {k: g.drop_duplicates("product_id").set_index("product_id")
              for k, g in df.groupby(key)}
     keys = sorted(snaps)
     for i in range(1, len(keys)):
         a, b = snaps[keys[i - 1]], snaps[keys[i]]
-        both = a.index.intersection(b.index)
-        days = ((dt.date.fromisoformat(b["date"].iloc[0]) - dt.date.fromisoformat(a["date"].iloc[0])).days
-                if key == "date" else 7)
-        du = (b.loc[both, "store_units"] - a.loc[both, "store_units"]).dropna()
-        kat = b.loc[du.index, "kat"]
-        camp = b.loc[du.index, "k_noen"]
-        price = a.loc[du.index, "p_medlem"]
-        for grp, mask in [("ALLE", pd.Series(True, index=du.index))] + \
-                         [(k, kat == k) for k in sorted(kat.unique())]:
-            d = du[mask]
-            cur, prev = set(b.index[b["kat"] == grp]) if grp != "ALLE" else set(b.index), \
-                set(a.index[a["kat"] == grp]) if grp != "ALLE" else set(a.index)
-            fall = (-d.clip(upper=0))
-            rows.append({
-                key: keys[i], "gruppe": grp, "dager": days,
-                "nye_varer": len(cur - prev), "utgaatte_varer": len(prev - cur),
-                "lager_nedgang": fall.sum(),
-                "lager_okning": d.clip(lower=0).sum(),
-                "lager_netto": d.sum(),
-                "lager_nedgang_per_dag": fall.sum() / days if days else np.nan,
-                "lager_nedgang_kr_medlem": (fall * price[mask]).sum(),
-                "lager_nedgang_kampanjevarer": fall[camp[mask]].sum(),
-                "lager_nedgang_fullpris": fall[~camp[mask]].sum(),
-                "varer_med_nedgang": int((d < 0).sum()),
-            })
+        for grp in ["ALLE"] + sorted(set(b["kat"]) | set(a["kat"])):
+            cur = set(b.index) if grp == "ALLE" else set(b.index[b["kat"] == grp])
+            prev = set(a.index) if grp == "ALLE" else set(a.index[a["kat"] == grp])
+            rows.append({key: keys[i], "gruppe": grp,
+                         "nye_varer": len(cur - prev), "utgaatte_varer": len(prev - cur)})
     return pd.DataFrame(rows)
 
 
@@ -245,8 +220,7 @@ def daily(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def weekly(df: pd.DataFrame, day: pd.DataFrame) -> pd.DataFrame:
-    """Uke: nivåer fra første kjøring i uken (mandag når den finnes, som Kid),
-    lagernedgang summert over alle kjøringer i uken."""
+    """Uke: nivåer fra første kjøring i uken (mandag når den finnes, som Kid)."""
     if df.empty:
         return pd.DataFrame()
     first = df.groupby("iso_week")["date"].transform("min")
@@ -261,11 +235,6 @@ def weekly(df: pd.DataFrame, day: pd.DataFrame) -> pd.DataFrame:
         w = w.merge(fl[["iso_week", "gruppe", "nye_varer", "utgaatte_varer"]], on=k, how="left")
     if len(pi.columns) > 2:
         w = w.merge(pi, on=k, how="left")
-    if "lager_nedgang" in day:
-        s = (day.groupby(k)[["lager_nedgang", "lager_netto", "lager_nedgang_kr_medlem",
-                             "lager_nedgang_kampanjevarer", "lager_nedgang_fullpris", "dager"]]
-             .sum(min_count=1).reset_index().rename(columns={"dager": "dager_med_lagerdata"}))
-        w = w.merge(s, on=k, how="left")
     w.insert(2, "kvartal", w["maaledag"].map(iso_quarter))
     return w.sort_values(["gruppe", "iso_week"]).reset_index(drop=True)
 

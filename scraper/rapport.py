@@ -2,7 +2,7 @@
 
   rapport/<butikk>_tracker.xlsx   Sammendrag, Dag, Uke, Kategorier, Kampanjefasetter,
                                   Butikker, Varer (siste kjøring), Forklaring
-  rapport/<butikk>_utvikling.png  kampanjeandel, rabatt, prisindeks, lagernedgang
+  rapport/<butikk>_utvikling.png  kampanjeandel, rabatt, prisindeks, sortiment
   rapport/SISTE.md                begge butikker, siste kjøring
   rapport/drive_ukesrapport.csv   kompakt tabell for ukesrapporten i Google Disk
 """
@@ -33,12 +33,9 @@ FORKLARING = [
     ("Andel rabatt medlem ekskl. lagertømming", "Varer med lavere medlemspris enn ordinær, uten lagertømming (Kitchn merker lagertømming med kampanjeslutt 2030, altså varig nedsatt)."),
     ("Snittrabatt ikke-medlem / medlem", "Snitt over alle varer av 1 − pris / ordinær pris. Ordinær = «Førpris», «Ikke medlem» eller «Etter kampanje» når de vises."),
     ("Lagervektet rabatt medlem", "Som over, vektet med enheter på lager i butikk (hvor mye av hylla som er på tilbud)."),
-    ("Butikklager enheter", "Sum enheter på lager i alle fysiske butikker (fra produktflisene)."),
-    ("Lagernedgang", "Sum fall i butikklager på samme vare fra forrige kjøring (bare varer der lageret falt). Tilnærming til solgte enheter; påfyll samme periode trekker ned. Fanges best daglig."),
-    ("Lagernedgang kr medlem", "Lagernedgang x medlemspris ved forrige kjøring (grov omsetningsproxy, inkl. mva)."),
     ("Prisindeks", "Jevons (geometrisk snitt) av pris mot vareens snittpris i basisvinduet " + " til ".join(config.BASE_WINDOW) + ". Kjedeindeks = lenket fra kjøring til kjøring."),
     ("Nye mot eksisterende", "Log-forskjell i ordinær pris for nye varer mot eksisterende i samme kategori samme dag (−0,05 ≈ 5 % billigere)."),
-    ("Mangler mot Kid", "Anmeldelser per vare vises ikke på listesidene, så «nye anmeldelser» finnes ikke her. Butikklager er et sterkere salgsmål."),
+    ("Mangler mot Kid", "Anmeldelser per vare vises ikke på listesidene, så «nye anmeldelser» finnes ikke her. Salgsanslag fra butikklager er et eget sideprosjekt: se rapport/salgsanslag/."),
 ]
 
 
@@ -55,7 +52,7 @@ def _fmt(ws, df: pd.DataFrame, r0: int = 1):
         elif str(c).startswith(("prisindeks", "kjedeindeks")):
             for i in range(r0 + 1, r0 + 1 + len(df)):
                 ws.cell(row=i, column=j).number_format = "0.0"
-        elif str(c).startswith(("lager", "butikklager", "varer", "nye_varer", "utgaatte")):
+        elif str(c).startswith(("varer", "nye_varer", "utgaatte")):
             for i in range(r0 + 1, r0 + 1 + len(df)):
                 ws.cell(row=i, column=j).number_format = "#,##0"
     ws.freeze_panes = ws.cell(row=r0 + 1, column=3)
@@ -80,9 +77,8 @@ def _chart(day: pd.DataFrame, path: Path, title: str):
             ax[1, 0].plot(x, a[f"prisindeks_{L}"], marker=".", label=lab)
     ax[1, 0].axhline(100, color="grey", lw=0.8)
     ax[1, 0].set_title("Prisindeks samme varer (basis = 100)")
-    if "lager_nedgang_per_dag" in a:
-        ax[1, 1].bar(x, a["lager_nedgang_per_dag"].fillna(0), color="#4c72b0")
-    ax[1, 1].set_title("Lagernedgang i butikk, enheter per dag")
+    ax[1, 1].plot(x, a["varer"], marker="o", color="#4c72b0")
+    ax[1, 1].set_title("Antall varer")
     for k in ax.flat:
         k.grid(alpha=0.3)
         if k.get_legend_handles_labels()[0]:
@@ -147,7 +143,7 @@ def _store_report(store: str) -> dict | None:
                 ws.cell(row=i, column=j).number_format = fmt
         w.sheets["Forklaring"].column_dimensions["A"].width = 38
         w.sheets["Forklaring"].column_dimensions["B"].width = 120
-    _chart(day, OUT / f"{store}_utvikling.png", f"{cfg['navn']}: kampanjetrykk, pris og butikklager")
+    _chart(day, OUT / f"{store}_utvikling.png", f"{cfg['navn']}: kampanjetrykk, pris og sortiment")
 
     last = alle.iloc[-1]
     prev = alle.iloc[-2] if len(alle) > 1 else None
@@ -186,8 +182,6 @@ def build() -> dict:
             f"| Snittrabatt ikke-medlem | {_p(L['snittrabatt_ikke_medlem'])} | {_p(P['snittrabatt_ikke_medlem']) if P is not None else '–'} |",
             f"| Prisindeks medlem (basis 100) | {_i(L.get('prisindeks_medlem'))} | {_i(P.get('prisindeks_medlem')) if P is not None else '–'} |",
             f"| Andel på nettlager | {_p(L['andel_paa_nettlager'])} | {_p(P['andel_paa_nettlager']) if P is not None else '–'} |",
-            f"| Butikklager, enheter | {_n(L['butikklager_enheter'])} | {_n(P['butikklager_enheter']) if P is not None else '–'} |",
-            f"| Lagernedgang per dag, enheter | {_n(L.get('lager_nedgang_per_dag'))} | {_n(P.get('lager_nedgang_per_dag')) if P is not None else '–'} |",
             "",
         ]
         rows.append({"butikk": r["navn"], "dato": r["dato"], **{k: L.get(k) for k in (
@@ -195,8 +189,7 @@ def build() -> dict:
             "andel_klubbpris", "andel_3for2", "andel_flerkjop", "andel_rabatt_medlem_ekskl_lagertomming", "andel_black_weeks", "andel_lagertomming",
             "snittrabatt_medlem", "snittrabatt_ikke_medlem", "lagervektet_rabatt_medlem",
             "prisindeks_ordinaer", "prisindeks_aapen", "prisindeks_medlem",
-            "andel_paa_nettlager", "butikklager_enheter", "lager_nedgang",
-            "lager_nedgang_per_dag", "lager_nedgang_kr_medlem")}})
+            "andel_paa_nettlager")}})
     lines += ["Full rapport: `rapport/kitchn_tracker.xlsx` og `rapport/tilbords_tracker.xlsx`. "
               "Forklaring av målene står i arket «Forklaring».", ""]
     (OUT / "SISTE.md").write_text("\n".join(lines), encoding="utf-8")

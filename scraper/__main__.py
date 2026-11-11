@@ -1,5 +1,7 @@
 """python -m scraper innsamling [--butikk kitchn|tilbords]   samle inn alle varer og priser
 python -m scraper rapport                                 lag Excel, graf og sammendrag
+python -m scraper salgsanslag                             sideprosjekt: salgsanslag fra butikklager
+python -m scraper lagersjekk                              sideprosjekt: lager i noen kategorier nå
 python -m scraper kartlegg                                hent et utvalg rå sider til rapport/probe
 python -m scraper test-side BUTIKK STI                    hent én side og vis hva som tolkes"""
 
@@ -18,6 +20,8 @@ def main(argv=None):
     c.add_argument("--uten-raa", action="store_true", help="ikke lagre rå sider")
     sub.add_parser("rapport")
     sub.add_parser("kartlegg")
+    sub.add_parser("salgsanslag")
+    sub.add_parser("lagersjekk")
     t = sub.add_parser("test-side")
     t.add_argument("butikk", choices=list(config.STORES))
     t.add_argument("sti", nargs="?", default="/kjokken/bakeutstyr/")
@@ -50,6 +54,19 @@ def main(argv=None):
         from . import rapport
         r = rapport.build()
         print(r.get("sammendrag", "ingen data"))
+        return 0
+    if a.cmd == "salgsanslag":
+        from . import salg
+        txt = salg.build()
+        print(txt or "ingen salgsanslag (skrudd av eller for lite data)")
+        return 0
+    if a.cmd == "lagersjekk":
+        if not config.SALGSANSLAG:
+            print("Salgsanslag er skrudd av.")
+            return 0
+        from . import crawl
+        for s in config.STORES:
+            crawl.lagersjekk(s)
         return 0
     if a.cmd == "kartlegg":
         from . import probe

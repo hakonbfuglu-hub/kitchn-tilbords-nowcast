@@ -52,6 +52,25 @@ from pathlib import Path as _P
 DATA_DIR = _P(__file__).resolve().parents[1] / "data"
 BASE_WINDOW = ("2026-11-10", "2026-11-15")   # basis for prisindeks: uken før Black Week
 
+# ---------------------------------------------------------------------------
+# SIDEPROSJEKT: salgsanslag fra butikklager (scraper/salg.py, rapport/salgsanslag/)
+# Sett SALGSANSLAG = False for å skru det av: da lagres ikke lager per vare og
+# butikk, og rapport/salgsanslag/ oppdateres ikke. Hovedrapporten påvirkes ikke.
+SALGSANSLAG = True
+SENTRALLAGER_FAKTOR = 10        # «butikk» med > 10 x median enheter = sentrallager
+MVA = 1.25
+# Årsomsetning eks. mva. (mill. kr) for nivåsjekken (grov: bare et bredt bånd 20-150 %).
+# Driftsinntekter 2024 for selskapet, ikke kjeden: Kitch'n AS 1 118 (flere butikker
+# ligger i egne selskaper «Kjøkkendrift No 1 ...»), Tilbords AS 401. Bytt gjerne
+# ut med kjedeomsetning i butikk hvis du har et bedre tall.
+REFERANSE_OMSETNING_MNOK = {"kitchn": 1118, "tilbords": 401}
+BASELINE = ("2026-11-12", "2026-11-22")     # salgsdager før Black Week
+BLACK_WEEK = ("2026-11-23", "2026-11-30")   # Black Friday 27.11.2026
+VURDERINGSDATO = "2026-11-23"               # kontroll 1-3 skal være avgjort her
+# Lagersjekk flere ganger om dagen 12.-18. nov: hvor ofte oppdateres lageret?
+LAGERSJEKK_KATEGORIER = ["/kjokken/bakeutstyr/", "/interior/lys-og-lysestaker/",
+                         "/borddekking/glass/"]
+
 # Helsesjekk: under disse grensene regnes kjøringen som mislykket
 HEALTH_MIN_PRODUCTS = 2000
 HEALTH_MIN_PRICE_SHARE = 0.95
