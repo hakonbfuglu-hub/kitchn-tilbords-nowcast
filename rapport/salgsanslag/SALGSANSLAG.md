@@ -23,6 +23,7 @@ Sentrallager holdt utenfor: 582
 | Salgsdag | Dag | Timer | Solgt, enheter | Mill. kr (medlem, inkl. mva) | Påfyll | Andel salg kampanje | Sentrallager ut | Nett: gikk tom / tilbake | Metode |
 |---|---|---:|---:|---:|---:|---:|---:|---|---|
 | 2026-11-10 | tir | 11.8 | 1 737 | 0.62 | 4 353 | 62% | – | 43 / 102 | sum per vare (grov) |
+| 2026-11-11 | ons | 24.0 | 6 370 | 2.08 | 26 662 | 56% | – | 83 / 107 | sum per vare (grov) |
 
 ## Tilbords
 
@@ -43,4 +44,5 @@ Sentrallager holdt utenfor: ingen
 | Salgsdag | Dag | Timer | Solgt, enheter | Mill. kr (medlem, inkl. mva) | Påfyll | Andel salg kampanje | Sentrallager ut | Nett: gikk tom / tilbake | Metode |
 |---|---|---:|---:|---:|---:|---:|---:|---|---|
 | 2026-11-10 | tir | 11.8 | 839 | 0.25 | 12 804 | 70% | – | 84 / 136 | sum per vare (grov) |
+| 2026-11-11 | ons | 24.0 | 2 533 | 0.80 | 18 752 | 63% | – | 114 / 150 | sum per vare (grov) |
 
