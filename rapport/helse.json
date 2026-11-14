@@ -1,31 +1,31 @@
 [
   {
     "butikk": "kitchn",
-    "dato": "2026-11-13",
+    "dato": "2026-11-14",
     "uke": "2026-W46",
     "status": "OK",
     "problemer": [],
-    "varer": 33497,
-    "varer_forrige": 33505,
-    "oppgitt_toppkategorier": 33499,
+    "varer": 33468,
+    "varer_forrige": 33497,
+    "oppgitt_toppkategorier": 33470,
     "andel_med_pris": 1.0,
     "andel_kampanjevare": 0.128,
-    "andel_paa_nettlager": 0.848,
-    "butikkenheter": 3927586,
+    "andel_paa_nettlager": 0.846,
+    "butikkenheter": 3912298,
     "fysiske_butikker": 153,
     "forside_bannere": 27,
     "kampanjesider": 4,
     "foresporsler": 143,
-    "mb": 145.7,
+    "mb": 145.9,
     "http_status": {
       "200": 143
     },
-    "minutter": 11.8,
+    "minutter": 11.7,
     "kategorier": [
       {
         "category": "/kjokken/",
         "depth": 1,
-        "site_total": 12451,
+        "site_total": 12439,
         "found": null,
         "requests": 1,
         "method": "topp"
@@ -33,7 +33,7 @@
       {
         "category": "/borddekking/",
         "depth": 1,
-        "site_total": 12353,
+        "site_total": 12340,
         "found": null,
         "requests": 1,
         "method": "topp"
@@ -41,7 +41,7 @@
       {
         "category": "/interior/",
         "depth": 1,
-        "site_total": 7910,
+        "site_total": 7906,
         "found": null,
         "requests": 1,
         "method": "topp"
@@ -57,48 +57,48 @@
       {
         "category": "/borddekking/bestikk/",
         "depth": 2,
-        "site_total": 1208,
-        "found": 1208,
+        "site_total": 1207,
+        "found": 1207,
         "requests": 2,
         "method": "side16"
       },
       {
         "category": "/borddekking/flasker-og-kanner/",
         "depth": 2,
-        "site_total": 1644,
-        "found": 1644,
+        "site_total": 1642,
+        "found": 1642,
         "requests": 2,
         "method": "side21"
       },
       {
         "category": "/borddekking/glass/",
         "depth": 2,
-        "site_total": 1534,
-        "found": 1534,
+        "site_total": 1533,
+        "found": 1533,
         "requests": 2,
         "method": "side20"
       },
       {
         "category": "/borddekking/kopper-og-krus/",
         "depth": 2,
-        "site_total": 1699,
-        "found": 1698,
+        "site_total": 1697,
+        "found": 1696,
         "requests": 2,
         "method": "side22"
       },
       {
         "category": "/borddekking/serveringstilbehor/",
         "depth": 2,
-        "site_total": 1559,
-        "found": 1559,
+        "site_total": 1555,
+        "found": 1555,
         "requests": 2,
         "method": "side20"
       },
       {
         "category": "/borddekking/servisedeler/",
         "depth": 2,
-        "site_total": 4081,
-        "found": 4081,
+        "site_total": 4078,
+        "found": 4078,
         "requests": 1,
         "method": "underkategorier"
       },
@@ -129,8 +129,8 @@
       {
         "category": "/interior/dekor/",
         "depth": 2,
-        "site_total": 1546,
-        "found": 1546,
+        "site_total": 1543,
+        "found": 1543,
         "requests": 2,
         "method": "side20"
       },
@@ -145,16 +145,16 @@
       {
         "category": "/interior/klokker/",
         "depth": 2,
-        "site_total": 67,
-        "found": 67,
+        "site_total": 68,
+        "found": 68,
         "requests": 1,
         "method": "side1"
       },
       {
         "category": "/interior/lys-og-lysestaker/",
         "depth": 2,
-        "site_total": 1425,
-        "found": 1425,
+        "site_total": 1423,
+        "found": 1423,
         "requests": 2,
         "method": "side18"
       },
@@ -193,32 +193,32 @@
       {
         "category": "/kjokken/bakeutstyr/",
         "depth": 2,
-        "site_total": 1437,
-        "found": 1436,
+        "site_total": 1435,
+        "found": 1434,
         "requests": 2,
         "method": "side18"
       },
       {
         "category": "/kjokken/gryter-og-panner/",
         "depth": 2,
-        "site_total": 1961,
-        "found": 1961,
+        "site_total": 1959,
+        "found": 1959,
         "requests": 2,
         "method": "side25"
       },
       {
         "category": "/kjokken/kjokkenapparater/",
         "depth": 2,
-        "site_total": 1742,
-        "found": 1742,
+        "site_total": 1741,
+        "found": 1741,
         "requests": 2,
         "method": "side22"
       },
       {
         "category": "/kjokken/kjokkenkniver/",
         "depth": 2,
-        "site_total": 1046,
-        "found": 1046,
+        "site_total": 1044,
+        "found": 1044,
         "requests": 2,
         "method": "side14"
       },
@@ -233,16 +233,16 @@
       {
         "category": "/kjokken/kjokkenutstyr/",
         "depth": 2,
-        "site_total": 3794,
-        "found": 3794,
+        "site_total": 3791,
+        "found": 3791,
         "requests": 1,
         "method": "underkategorier"
       },
       {
         "category": "/kjokken/mat-og-drikke/",
         "depth": 2,
-        "site_total": 574,
-        "found": 574,
+        "site_total": 572,
+        "found": 572,
         "requests": 2,
         "method": "side8"
       },
@@ -290,31 +290,31 @@
   },
   {
     "butikk": "tilbords",
-    "dato": "2026-11-13",
+    "dato": "2026-11-14",
     "uke": "2026-W46",
     "status": "OK",
     "problemer": [],
-    "varer": 35945,
-    "varer_forrige": 35903,
-    "oppgitt_toppkategorier": 35947,
+    "varer": 35924,
+    "varer_forrige": 35945,
+    "oppgitt_toppkategorier": 35925,
     "andel_med_pris": 1.0,
     "andel_kampanjevare": 0.171,
-    "andel_paa_nettlager": 0.848,
-    "butikkenheter": 1052265,
+    "andel_paa_nettlager": 0.847,
+    "butikkenheter": 1044094,
     "fysiske_butikker": 56,
     "forside_bannere": 27,
     "kampanjesider": 2,
     "foresporsler": 142,
-    "mb": 132.4,
+    "mb": 133.7,
     "http_status": {
       "200": 142
     },
-    "minutter": 13.2,
+    "minutter": 11.8,
     "kategorier": [
       {
         "category": "/kjokken/",
         "depth": 1,
-        "site_total": 12749,
+        "site_total": 12739,
         "found": null,
         "requests": 1,
         "method": "topp"
@@ -322,7 +322,7 @@
       {
         "category": "/borddekking/",
         "depth": 1,
-        "site_total": 13498,
+        "site_total": 13485,
         "found": null,
         "requests": 1,
         "method": "topp"
@@ -330,7 +330,7 @@
       {
         "category": "/interior/",
         "depth": 1,
-        "site_total": 8869,
+        "site_total": 8870,
         "found": null,
         "requests": 1,
         "method": "topp"
@@ -346,48 +346,48 @@
       {
         "category": "/borddekking/bestikk/",
         "depth": 2,
-        "site_total": 1400,
-        "found": 1400,
+        "site_total": 1398,
+        "found": 1398,
         "requests": 2,
         "method": "side18"
       },
       {
         "category": "/borddekking/flasker-og-kanner/",
         "depth": 2,
-        "site_total": 1753,
-        "found": 1753,
+        "site_total": 1751,
+        "found": 1751,
         "requests": 2,
         "method": "side22"
       },
       {
         "category": "/borddekking/glass/",
         "depth": 2,
-        "site_total": 1650,
-        "found": 1650,
+        "site_total": 1649,
+        "found": 1649,
         "requests": 2,
         "method": "side21"
       },
       {
         "category": "/borddekking/kopper-og-krus/",
         "depth": 2,
-        "site_total": 1813,
-        "found": 1813,
+        "site_total": 1812,
+        "found": 1812,
         "requests": 2,
         "method": "side23"
       },
       {
         "category": "/borddekking/serveringstilbehor/",
         "depth": 2,
-        "site_total": 1719,
-        "found": 1719,
+        "site_total": 1716,
+        "found": 1716,
         "requests": 2,
         "method": "side22"
       },
       {
         "category": "/borddekking/servisedeler/",
         "depth": 2,
-        "site_total": 4439,
-        "found": 4438,
+        "site_total": 4435,
+        "found": 4434,
         "requests": 1,
         "method": "underkategorier"
       },
@@ -418,8 +418,8 @@
       {
         "category": "/interior/dekor/",
         "depth": 2,
-        "site_total": 1789,
-        "found": 1789,
+        "site_total": 1787,
+        "found": 1787,
         "requests": 2,
         "method": "side23"
       },
@@ -434,8 +434,8 @@
       {
         "category": "/interior/klokker/",
         "depth": 2,
-        "site_total": 74,
-        "found": 74,
+        "site_total": 75,
+        "found": 75,
         "requests": 1,
         "method": "side1"
       },
@@ -458,8 +458,8 @@
       {
         "category": "/interior/tekstil/",
         "depth": 2,
-        "site_total": 2085,
-        "found": 2085,
+        "site_total": 2086,
+        "found": 2086,
         "requests": 2,
         "method": "side27"
       },
@@ -474,24 +474,24 @@
       {
         "category": "/interior/vaser-og-potter/",
         "depth": 2,
-        "site_total": 923,
-        "found": 923,
+        "site_total": 924,
+        "found": 924,
         "requests": 2,
         "method": "side12"
       },
       {
         "category": "/kjokken/bakeutstyr/",
         "depth": 2,
-        "site_total": 1471,
-        "found": 1470,
+        "site_total": 1468,
+        "found": 1468,
         "requests": 2,
         "method": "side19"
       },
       {
         "category": "/kjokken/gryter-og-panner/",
         "depth": 2,
-        "site_total": 1986,
-        "found": 1986,
+        "site_total": 1985,
+        "found": 1985,
         "requests": 2,
         "method": "side25"
       },
@@ -506,8 +506,8 @@
       {
         "category": "/kjokken/kjokkenkniver/",
         "depth": 2,
-        "site_total": 1115,
-        "found": 1115,
+        "site_total": 1113,
+        "found": 1113,
         "requests": 2,
         "method": "side14"
       },
@@ -522,24 +522,24 @@
       {
         "category": "/kjokken/kjokkenutstyr/",
         "depth": 2,
-        "site_total": 3843,
-        "found": 3843,
+        "site_total": 3841,
+        "found": 3841,
         "requests": 1,
         "method": "underkategorier"
       },
       {
         "category": "/kjokken/mat-og-drikke/",
         "depth": 2,
-        "site_total": 529,
-        "found": 529,
+        "site_total": 528,
+        "found": 528,
         "requests": 2,
         "method": "side7"
       },
       {
         "category": "/kjokken/oppbevaring/",
         "depth": 2,
-        "site_total": 1226,
-        "found": 1226,
+        "site_total": 1225,
+        "found": 1225,
         "requests": 2,
         "method": "side16"
       },

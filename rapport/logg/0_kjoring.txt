@@ -1,1 +1,1 @@
-kjoring=43359805255 hendelse=schedule commit=cf3c1c93bfe2eaac27723e8f11fff701ee1b7c7e tid=2026-11-13T04:01:00Z
+kjoring=43551957025 hendelse=schedule commit=ee8fe329dbab8dc069b53a621d52d610b31d6dcb tid=2026-11-14T03:55:10Z

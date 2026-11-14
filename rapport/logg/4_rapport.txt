@@ -1,32 +1,32 @@
 # Kitchn og Tilbords: siste kjøring
 
-## Kitchn (2026-11-13, 4 kjøringer)
+## Kitchn (2026-11-14, 5 kjøringer)
 
 ![Kitchn](kitchn_utvikling.png)
 
 | Mål | Siste | Forrige |
 |---|---:|---:|
-| Varer | 33 497 | 33 505 |
-| Andel med kampanje | 25,1 % | 24,9 % |
+| Varer | 33 468 | 33 497 |
+| Andel med kampanje | 25,1 % | 25,1 % |
 | Andel Black Weeks-merket | 1,4 % | 1,4 % |
-| Snittrabatt medlem | 9,2 % | 9,1 % |
-| Snittrabatt ikke-medlem | 9,1 % | 9,0 % |
-| Prisindeks medlem (basis 100) | 99,2 | 99,4 |
-| Andel på nettlager | 84,8 % | 84,9 % |
+| Snittrabatt medlem | 9,2 % | 9,2 % |
+| Snittrabatt ikke-medlem | 9,1 % | 9,1 % |
+| Prisindeks medlem (basis 100) | 99,4 | 99,4 |
+| Andel på nettlager | 84,6 % | 84,8 % |
 
-## Tilbords (2026-11-13, 4 kjøringer)
+## Tilbords (2026-11-14, 5 kjøringer)
 
 ![Tilbords](tilbords_utvikling.png)
 
 | Mål | Siste | Forrige |
 |---|---:|---:|
-| Varer | 35 944 | 35 902 |
-| Andel med kampanje | 27,4 % | 27,5 % |
+| Varer | 35 923 | 35 944 |
+| Andel med kampanje | 27,4 % | 27,4 % |
 | Andel Black Weeks-merket | 1,1 % | 1,1 % |
-| Snittrabatt medlem | 10,3 % | 10,4 % |
-| Snittrabatt ikke-medlem | 10,3 % | 10,4 % |
-| Prisindeks medlem (basis 100) | 99,6 | 99,6 |
-| Andel på nettlager | 84,8 % | 84,8 % |
+| Snittrabatt medlem | 10,3 % | 10,3 % |
+| Snittrabatt ikke-medlem | 10,3 % | 10,3 % |
+| Prisindeks medlem (basis 100) | 99,7 | 99,7 |
+| Andel på nettlager | 84,7 % | 84,8 % |
 
 Full rapport: `rapport/kitchn_tracker.xlsx` og `rapport/tilbords_tracker.xlsx`. Forklaring av målene står i arket «Forklaring».
 
