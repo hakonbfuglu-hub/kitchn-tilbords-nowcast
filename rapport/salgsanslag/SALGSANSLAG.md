@@ -10,10 +10,10 @@ Nedre anslag på salg i fysiske butikker: fall i lager per vare og butikk fra é
 
 | Kontroll | Status | Resultat | Krav |
 |---|---|---|---|
-| 1 Søndag nær null | OK | søndag = 14% av en vanlig dag | søndag < 25 % av median hverdag |
+| 1 Søndag nær null | OK | søndag = 13% av en vanlig dag | søndag < 25 % av median hverdag |
 | 2 Ukemønster | OK | største dager: lør, ons; man-ons 32,692 mot tor-lør 34,711 enheter | lørdag blant de to største; man-ons lavere enn tor-lør |
 | 3 Stabil fordeling | FEIL | korrelasjon kategorier 0.94, butikker 0.14 | kategorier ≥ 0,85 og butikker ≥ 0,80 (første mot andre halvdel før Black Week) |
-| 4 Black Week-løft | FEIL | totalt x1.35; kampanjevarer x1.30, fullpris x1.51 | totalt > 1,3x ukene før, og større løft på kampanjevarer enn fullpris |
+| 4 Black Week-løft | FEIL | totalt x1.61; kampanjevarer x1.56, fullpris x1.80 | totalt > 1,3x ukene før, og større løft på kampanjevarer enn fullpris |
 | 5 Nivå | FEIL | anslaget x 365 = 265% av årsomsetningen i butikk | 20-150 % (nedre anslag; november er ikke en snittmåned) |
 
 Oppdatering av lagertall: Løpende: lageret endrer seg i løpet av dagen
@@ -39,6 +39,7 @@ Sentrallager holdt utenfor: 80, 582
 | 2026-11-25 | ons | 22.8 | 29 519 | 10.46 | 25 816 | 76% | 340 | 366 / 307 | vare x butikk |
 | 2026-11-26 | tor | 23.8 | 35 761 | 12.67 | 27 177 | 75% | 378 | 378 / 281 | vare x butikk |
 | 2026-11-27 | fre | 23.9 | 50 702 | 18.68 | 31 597 | 77% | 497 | 557 / 305 | vare x butikk |
+| 2026-11-28 | lør | 23.5 | 69 117 | 25.66 | 17 186 | 76% | 43 969 316 | 690 / 130 | vare x butikk |
 
 ## Tilbords
 
@@ -49,7 +50,7 @@ Sentrallager holdt utenfor: 80, 582
 | 1 Søndag nær null | OK | søndag = 19% av en vanlig dag | søndag < 25 % av median hverdag |
 | 2 Ukemønster | OK | største dager: fre, lør; man-ons 9,622 mot tor-lør 13,406 enheter | lørdag blant de to største; man-ons lavere enn tor-lør |
 | 3 Stabil fordeling | OK | korrelasjon kategorier 0.99, butikker 0.87 | kategorier ≥ 0,85 og butikker ≥ 0,80 (første mot andre halvdel før Black Week) |
-| 4 Black Week-løft | FEIL | totalt x1.51; kampanjevarer x1.47, fullpris x1.63 | totalt > 1,3x ukene før, og større løft på kampanjevarer enn fullpris |
+| 4 Black Week-løft | FEIL | totalt x1.74; kampanjevarer x1.69, fullpris x1.92 | totalt > 1,3x ukene før, og større løft på kampanjevarer enn fullpris |
 | 5 Nivå | FEIL | anslaget x 365 = 248% av årsomsetningen i butikk | 20-150 % (nedre anslag; november er ikke en snittmåned) |
 
 Oppdatering av lagertall: Løpende: lageret endrer seg i løpet av dagen
@@ -75,4 +76,5 @@ Sentrallager holdt utenfor: ingen
 | 2026-11-25 | ons | 22.8 | 11 513 | 3.94 | 5 691 | 77% | 0 | 328 / 287 | vare x butikk |
 | 2026-11-26 | tor | 23.8 | 14 895 | 5.10 | 8 427 | 76% | 0 | 374 / 261 | vare x butikk |
 | 2026-11-27 | fre | 24.0 | 20 465 | 7.08 | 11 047 | 77% | 0 | 576 / 285 | vare x butikk |
+| 2026-11-28 | lør | 23.5 | 25 434 | 9.07 | 3 540 | 75% | 0 | 664 / 140 | vare x butikk |
 
